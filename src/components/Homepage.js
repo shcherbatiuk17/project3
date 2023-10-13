@@ -45,7 +45,7 @@ function Homepage() {
             
             {/* Description and Image */}
             <section className="description-image-section">
-                <img src={Image} alt="Workers on strike" className="description-image"/>
+                {/* <img src={Image} alt="Workers on strike" className="description-image"/> */}
                 <p className="description-text">Short description here.</p>
             </section>
             

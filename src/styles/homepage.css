@@ -6,6 +6,7 @@
 .homepage-header h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: #0663dd;
 }
 
 .description-image-section {
@@ -13,6 +14,11 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
+}
+
+body { 
+    background-image: url(/src/assets/img1.jpg) ;
+    background-size: cover; 
 }
 
 .description-image {
@@ -52,4 +58,9 @@
     color: white;
     text-decoration: none;
     border-radius: 12px;
+}
+
+.register-section p {
+    color: #002bb9;
+    font-size: large; 
 }
