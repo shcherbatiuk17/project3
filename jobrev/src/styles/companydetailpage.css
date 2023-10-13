@@ -1,0 +1,55 @@
+.company-detail-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  h2, h3 {
+    color: #0077b6;
+  }
+  
+  .review {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: white;
+    border-radius: 5px;
+  }
+  
+  .add-review-section {
+    margin-top: 25px;
+  }
+  
+  button {
+    background-color: #0077b6;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #005f8d;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    resize: vertical;
+  }
+  
+  select {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
