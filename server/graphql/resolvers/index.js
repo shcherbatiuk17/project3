@@ -91,17 +91,17 @@ const resolvers = {
 
         // Create new review for a company by ID
         // Requires authenticated user
-        addReview: async (_, { company, reviewText, rating }, context) => {
+        addReview: async (_, { companyId, reviewText, rating }, context) => {
             if (context.user) {
                 const review = await Review.create({
                     reviewText,
                     rating,
-                    company,
+                    company: companyId,
                     user: context.user._id
                 });
         
                 await Company.findByIdAndUpdate(
-                    company,
+                    companyId,
                     { $push: { reviews: review._id } },
                     { new: true }
                 );

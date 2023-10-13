@@ -29,33 +29,34 @@ const ADD_REVIEW = gql`
 `;
 
 function CompanyDetailPage() {
-  const { company } = useParams();
+  const { companyId } = useParams();
   const { loading, error, data } = useQuery(GET_COMPANY_DETAILS, {
-    variables: { company }
+    variables: { companyId }
   });
   
   const [reviewText, setReviewText] = useState('');
   const [reviewRating, setReviewRating] = useState(5);
   const [addReview] = useMutation(ADD_REVIEW, {
-    refetchQueries: [{ query: GET_COMPANY_DETAILS, variables: { company } }],
+    refetchQueries: [{ query: GET_COMPANY_DETAILS, variables: { companyId } }],
     awaitRefetchQueries: true
-  
   });
 
   const navigate = useNavigate();
   const handleSubmitReview = async (e) => {
     e.preventDefault();
     try {
+      const vars = { companyId, reviewText, rating: parseInt(reviewRating) };
+      console.log('WEEW', vars);
       await addReview({
-        variables: { company, reviewText: reviewText, rating: parseInt(reviewRating) }
+        variables: vars
       });
       alert('Review added successfully!');
       setReviewText('');
       setReviewRating(5);
-      navigate ('/companies')
+      navigate('/companies');
     } catch (err) {
       console.error('Failed to add review:', err.message);
-      alert('Error adding review!');
+      alert('Error adding review: ' + err.message);
     }
   };
 
@@ -67,7 +68,6 @@ function CompanyDetailPage() {
   return (
     <div className="company-detail-container">
       <h2>{name} Reviews</h2>
-      {/* <p>Rating: {rating} ⭐'s</p >*/}
       <p>Description: {description}</p>
       
       <div className="reviews-section">
@@ -99,6 +99,5 @@ function CompanyDetailPage() {
     </div>
   );
 }
-
 
 export default CompanyDetailPage;
