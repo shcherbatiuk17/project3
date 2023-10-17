@@ -30,6 +30,15 @@ const DELETE_COMPANY = gql`
   }
 `;
 
+const EDIT_COMPANY = gql`
+  mutation EditCompany($companyId: ID!, $name: String, $description: String) {
+    editCompany(companyId: $companyId, name: $name, description: $description) {
+     _id
+      description
+    }
+  }
+`;
+
 function Profile() {
   const token = localStorage.getItem('token');
   const decodedToken = jwtDecode(token);
@@ -40,10 +49,46 @@ function Profile() {
   });
 
   const [deleteCompany] = useMutation(DELETE_COMPANY);
+  const [editCompany] = useMutation(EDIT_COMPANY);
 
   function handleEditCompany(company) {
-  {/* Edit Company */}
+    const newDescription = window.prompt("Enter new company description:", company.description);
+  
+    if (newDescription && newDescription !== company.description) {
+      editCompany({
+        variables: {
+          companyId: company._id,
+          description: newDescription
+        },
+        update: (cache, { data: { editCompany } }) => {
+          const existingProfile = cache.readQuery({
+            query: GET_USER_PROFILE,
+            variables: { userId },
+          });
+  
+          const updatedCompanies = existingProfile.user.companies.map(c =>
+            c._id === company._id ? { ...c, description: editCompany.description } : c
+          );
+  
+          cache.writeQuery({
+            query: GET_USER_PROFILE,
+            variables: { userId },
+            data: {
+              ...existingProfile,
+              user: {
+                ...existingProfile.user,
+                companies: updatedCompanies,
+              },
+            },
+          });
+        }
+      }).catch((err) => {
+        console.error("Error editing the company:", err);
+        alert("Error editing the company. Try again later.");
+      });
+    }
   }
+  
 
   function handleDeleteCompany(companyId) {
     if (window.confirm("Are you sure you want to delete this company?")) {

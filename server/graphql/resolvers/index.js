@@ -114,17 +114,21 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in to post a review!');
         },
         
-        updateCompany: async (_, { company, name, description }, context) => {
+        editCompany: async (_, { companyId, description }, context) => {
             if (!context.user) {
-                throw new AuthenticationError('You need to be logged in to edit a company!');
+              throw new AuthenticationError('You need to be logged in to edit a company!');
             }
-
-            return Company.findByIdAndUpdate(
-                company,
-                { $set: { name: name, description: description } },
-                { new: true }
-            );
-        },
+            
+            const updatedCompany = await Company.findByIdAndUpdate(companyId, { description }, { new: true });
+            
+            if (!updatedCompany) {
+              throw new Error('Company not found or update failed.');
+            }
+          
+            return updatedCompany;
+          },
+          
+          
 
         deleteCompany: async (_, { companyId }, context) => {
             console.log('deleteCompany resolver triggered')
