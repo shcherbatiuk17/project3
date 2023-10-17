@@ -45,7 +45,7 @@ type Company {
 
 extend type Mutation {
   addCompany(name: String!, description: String!): Company
-  updateCompany(companyId: ID!, name: String, description: String): Company
+  editCompany(companyId: ID!, name: String, description: String): Company
   deleteCompany(companyId: ID!): String
 }
 
