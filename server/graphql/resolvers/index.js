@@ -126,13 +126,15 @@ const resolvers = {
             );
         },
 
-        deleteCompany: async (_, { company }, context) => {
+        deleteCompany: async (_, { companyId }, context) => {
+            console.log('deleteCompany resolver triggered')
             if (!context.user) {
               throw new AuthenticationError('You need to be logged in to delete a company!');
             }
         
-            await Review.deleteMany({ company: company });
-            await Company.findByIdAndDelete(company);
+            await Review.deleteMany({ company: companyId });
+            await Company.findByIdAndDelete(companyId);
+            console.log('Deleted')
             
             return "Company and associated reviews deleted successfully!";
           },

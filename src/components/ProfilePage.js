@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery, useMutation, gql } from '@apollo/client';
 import jwtDecode from 'jwt-decode';
 
 const GET_USER_PROFILE = gql`
@@ -24,26 +24,65 @@ const GET_USER_PROFILE = gql`
   }
 `;
 
+const DELETE_COMPANY = gql`
+  mutation DeleteCompany($companyId: ID!) {
+    deleteCompany(companyId: $companyId) 
+  }
+`;
 
 function Profile() {
   const token = localStorage.getItem('token');
-
   const decodedToken = jwtDecode(token);
   const userId = decodedToken._id;
-
 
   const { data, loading, error } = useQuery(GET_USER_PROFILE, {
     variables: { userId },
   });
 
+  const [deleteCompany] = useMutation(DELETE_COMPANY);
+
+  function handleEditCompany(company) {
+  {/* Edit Company */}
+  }
+
+  function handleDeleteCompany(companyId) {
+    if (window.confirm("Are you sure you want to delete this company?")) {
+      deleteCompany({
+        variables: { companyId },
+        update: (cache) => {
+          const existingProfile = cache.readQuery({
+            query: GET_USER_PROFILE,
+            variables: { userId },
+          });
+
+          const newCompanies = existingProfile.user.companies.filter(
+            (c) => c._id !== companyId
+          );
+
+          cache.writeQuery({
+            query: GET_USER_PROFILE,
+            variables: { userId },
+            data: {
+              ...existingProfile,
+              user: {
+                ...existingProfile.user,
+                companies: newCompanies,
+              },
+            },
+          });
+        },
+      }).catch((err) => {
+        console.error("Error deleting the company:", err);
+        alert("Error deleting the company. Try again later.");
+      });
+    }
+  }
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
-
   if (!data || !data.user) return <p>No user data found</p>;
 
   const { name, email, companies, reviews } = data.user;
-  console.log('User Data:', data.user);
-
 
   return (
     <div className="profile-container">
@@ -56,7 +95,8 @@ function Profile() {
           <div key={company._id}>
             <h4>{company.name}</h4>
             <p>{company.description}</p>
-            {/* Add Edit and Delete buttons for company */}
+            <button onClick={() => handleEditCompany(company)}>Edit</button>
+            <button onClick={() => handleDeleteCompany(company._id)}>Delete</button>
           </div>
         ))}
       </section>
@@ -68,11 +108,12 @@ function Profile() {
             <p>
               {review.reviewText} - {review.rating} ⭐ on {review.company ? review.company.name : 'Unknown Company'}
             </p>
-            {/* Add Edit and Delete buttons for review */}
+            {/* Edit and delete for reviews? */}
           </div>
         ))}
       </section>
     </div>
   );
 }
+
 export default Profile;
