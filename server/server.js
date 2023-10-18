@@ -8,7 +8,7 @@ const resolvers = require('./graphql/resolvers');
 const SECRET_KEY = process.env.JWT_SECRET;
 const app = express();
 const PORT = process.env.PORT || 4000;
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/JobReviewerz');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://Liam:pass123@jobreviewerz.cwjpd1l.mongodb.net/?retryWrites=true&w=majority');
 
 const getUserFromToken = (req) => {
   const token = req.headers.authorization?.split('Bearer ')[1];
