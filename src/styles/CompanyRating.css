@@ -1,16 +1,12 @@
 /* CompanyRating.css */
 .company-rating {
-    display: flex;
-    align-items: center;
-  }
-  
-  .fas.fa-star {
-    color: #FFD700; /* Star color */
-    font-size: 24px; /* Star size  */
-  }
-  
-  .fas.fa-star-half-alt {
-    color: #FFD700; /* Half-star color  */
-    font-size: 24px; /* Half-star size  */
-  }
-  
+  display: flex;
+  align-items: center;
+}
+
+.fas.fa-star,
+.fas.fa-star-half-alt {
+  color: #FFD700; /* Star and half-star color */
+  font-size: 24px; /* Star and half-star size */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}

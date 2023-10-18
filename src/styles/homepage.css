@@ -1,29 +1,35 @@
+v/* Reset some default styles for better consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4; /* Light gray background */
+    color: #333; /* Dark text color */
+}
+
+/* Center the content and add some padding */
 .homepage-container {
     text-align: center;
     padding: 2rem;
 }
 
+/* Style the homepage header */
+.homepage-header {
+    text-align: center;
+}
+
 .homepage-header h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color:lightyellow;
-    position: relative;
-    bottom: 50px;
-    right: 500px;
-    font-family: Arial, Helvetica, sans-serif;
+    color: #007D81; /* Teal header text color */
 }
 
-/*.description-image-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-}*/
-
-body { 
-    background-image: url(/src/assets/img1.jpg) ;
-    width: 100%;
-    background-size: cover; 
+/* Center the description section */
+.description-image-section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,51 +37,63 @@ body {
 }
 
 .description-image {
-    width: 40%;
+    max-width: 40%;
     border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 }
 
 .description-text {
-    width: 40%;
+    max-width: 40%;
     text-align: left;
 }
 
-.login-section .login-input {
+/* Style the login section */
+.login-section {
+    text-align: center;
+}
+
+.login-input {
     display: block;
     margin: 1rem auto;
     padding: 0.5rem;
     font-size: 1rem;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc; /* Light gray border */
+    width: 100%;
 }
 
-.login-button {
+.login-button, .register-button {
     padding: 0.7rem 1.5rem;
     font-size: 1rem;
     border: none;
     border-radius: 12px;
-    background-color: black;
-    color: white;
+    background-color: #007D81; /* Teal button background */
+    color: #fff; /* White text color */
     cursor: pointer;
-}
-
-.register-button {
     display: inline-block;
     margin-top: 1rem;
-    padding: 0.7rem 1.5rem;
-    background-color: #333;
-    color: white;
     text-decoration: none;
-    border-radius: 12px;
+}
+
+.login-button:hover, .register-button:hover {
+    background-color: #005457; /* Darker teal on hover */
+}
+
+/* Style the register section */
+.register-section {
+    text-align: center;
 }
 
 .register-section p {
-    color: black;
-    font-size: large; 
+    color: #007D81; /* Teal text color */
+    font-size: 1.2rem;
 }
 
-@media screen and (min-width:80rem){
-    .container{
-        margin : 1em 2em;
+/* Add a media query for larger screens */
+@media screen and (min-width: 80rem) {
+    .homepage-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem;
     }
 }

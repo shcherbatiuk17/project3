@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import jwtDecode from 'jwt-decode';
+import '../styles/profilepage.css';
 
 const GET_USER_PROFILE = gql`
   query GetUserProfile($userId: ID!) {

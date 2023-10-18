@@ -1,0 +1,68 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 2rem auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #007D81; /* Teal header text color */
+  }
+  
+  .profile-container p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-container section {
+    margin-top: 2rem;
+  }
+  
+  .profile-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #007D81; /* Teal section header text color */
+  }
+  
+  .profile-container div {
+    padding: 1rem;
+    border: 1px solid #ccc; /* Slightly lighter gray border */
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  .profile-container h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-container p {
+    font-size: 1.2rem;
+  }
+  
+  /* Edit and Delete buttons (customize these as needed) */
+  .profile-container .edit-button,
+  .profile-container .delete-button {
+    padding: 0.5rem 1rem;
+    background-color: #007D81; /* Teal button background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .profile-container .edit-button:hover,
+  .profile-container .delete-button:hover {
+    background-color: #005457; /* Darker teal on hover */
+  }
