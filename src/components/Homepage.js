@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useMutation, gql } from '@apollo/client';
-import Image from '../assets/img.jpg';
+// import Image from '../assets/img.jpg';
 import '../styles/homepage.css';
 
 const LOGIN_USER = gql`
@@ -40,14 +40,15 @@ function Homepage() {
             
             {/* Header */}
             <header className="homepage-header">
-                <h1>JobReviewerz</h1>
+                    {/* <h1>Job Reviewerz</h1> */}
+                    
             </header>
             
             {/* Description and Image */}
-            <section className="description-image-section">
+            {/* <section className="description-image-section">
                 {/* <img src={Image} alt="Workers on strike" className="description-image"/> */}
-                <p className="description-text">Short description here.</p>
-            </section>
+                {/* <p className="description-text">Short description here.</p>
+            </section> */} 
             
             {/* Login */}
             <section className="login-section">
@@ -71,10 +72,26 @@ function Homepage() {
             </section>
             
             {/* Register */}
-            <section className="register-section">
-                <p>New here? Start your journey with us!</p>
-                <Link to="/register" className="register-button">Register</Link>
+            <div className="container">
+            <p>Welcome to Job Reviewerz! Our platform is your one-stop destination for finding your dream job. Discover top companies, read insightful reviews from current and former employees, and explore their latest job openings. Whether you're a seasoned professional or just starting your career, Job Reviewerz is here to help you make informed decisions and connect with employers looking for talent like you. Join us today and take the next step in your career journey.</p> 
+
+            <h1>Job Reviewerz</h1>  
+            
+
+            </div>            
+                <section className="register-section">
+                <Link to="/register" 
+                className="register-button">Register</Link>
+                  
+
+                           
             </section>
+            {/* <h1>Job Reviewerz</h1> */}      
+                
+                             
+                   
+                 
+                {/* <h1>Job Reviewerz</h1>          */}
         </div>
     );
 }

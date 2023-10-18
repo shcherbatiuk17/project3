@@ -4,9 +4,10 @@
 }
 
 .homepage-header h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #0663dd;
+    font-size: 35px;
+    margin-top: 0.5rem;
+    color: #0663dd; 
+    /* text-align: center; */
 }
 
 .description-image-section {
@@ -17,7 +18,7 @@
 }
 
 body { 
-    background-image: url(/src/assets/img1.jpg) ;
+    background-image: url(/src/assets/img3.jpg) ;
     background-size: cover; 
 }
 
@@ -26,18 +27,20 @@ body {
     border-radius: 10px;
 }
 
-.description-text {
+/* .description-text {
     width: 40%;
     text-align: left;
-}
+} */
 
 .login-section .login-input {
-    display: block;
-    margin: 1rem auto;
+    display: ruby-base; 
+    margin: 0.5rem auto;
     padding: 0.5rem;
     font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    border-radius: calc();
+    border: 3px solid #072eee;  
+ 
+    
 }
 
 .login-button {
@@ -48,6 +51,8 @@ body {
     background-color: #0077cc;
     color: white;
     cursor: pointer;
+    margin-right: auto;
+   
 }
 
 .register-button {
@@ -57,10 +62,39 @@ body {
     background-color: #333;
     color: white;
     text-decoration: none;
-    border-radius: 12px;
+    border-radius: 12px; 
+    margin-left: auto;
+   
+ 
 }
 
-.register-section p {
-    color: #002bb9;
+.register-section {
+    color: #3b00fb;
     font-size: large; 
+    text-align: center; 
+    padding: 60px 350px;
+    transform: rotate(15deg);
+    
+}
+
+.login-section{
+    color: #3b00fb;
+    font-size: large; 
+    text-align: center; 
+    padding: 60px 350px;
+    transform: rotate(15deg);
+
+}
+
+ .container p {
+    color: #002bb9; 
+    padding: 15px 350px;
+    transform: rotate(15deg);  
+    
+}
+
+ h1 {
+    color: #002bb9;
+    padding: 0px 350px;
+    transform: rotate(15deg);
 }
