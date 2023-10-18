@@ -114,25 +114,31 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in to post a review!');
         },
         
-        updateCompany: async (_, { company, name, description }, context) => {
+        editCompany: async (_, { companyId, description }, context) => {
             if (!context.user) {
-                throw new AuthenticationError('You need to be logged in to edit a company!');
+              throw new AuthenticationError('You need to be logged in to edit a company!');
             }
+            
+            const updatedCompany = await Company.findByIdAndUpdate(companyId, { description }, { new: true });
+            
+            if (!updatedCompany) {
+              throw new Error('Company not found or update failed.');
+            }
+          
+            return updatedCompany;
+          },
+          
+          
 
-            return Company.findByIdAndUpdate(
-                company,
-                { $set: { name: name, description: description } },
-                { new: true }
-            );
-        },
-
-        deleteCompany: async (_, { company }, context) => {
+        deleteCompany: async (_, { companyId }, context) => {
+            console.log('deleteCompany resolver triggered')
             if (!context.user) {
               throw new AuthenticationError('You need to be logged in to delete a company!');
             }
         
-            await Review.deleteMany({ company: company });
-            await Company.findByIdAndDelete(company);
+            await Review.deleteMany({ company: companyId });
+            await Company.findByIdAndDelete(companyId);
+            console.log('Deleted')
             
             return "Company and associated reviews deleted successfully!";
           },
