@@ -1,4 +1,4 @@
-/* Homepage CSS */
+/* Homepage CSS with improvements */
 .homepage-container {
   text-align: center;
   padding: 2rem;
@@ -43,6 +43,11 @@
   background-color: #0077cc;
   color: white;
   cursor: pointer;
+  transition: background-color 0.2s; /* Added hover effect */
+}
+
+.login-button:hover {
+  background-color: #005ea3; /* Darker blue on hover */
 }
 
 .register-button {
@@ -53,5 +58,9 @@
   color: white;
   text-decoration: none;
   border-radius: 5px;
+  transition: background-color 0.2s; /* Added hover effect */
 }
 
+.register-button:hover {
+  background-color: #222; /* Darker background on hover */
+}
