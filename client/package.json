@@ -1,4 +1,7 @@
 {
+  "name": "jobrev",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "jwt-decode": "^3.1.2"
   }
