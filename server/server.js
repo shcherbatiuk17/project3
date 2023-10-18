@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const { ApolloServer } = require('apollo-server-express');
 const mongoose = require('mongoose');
 const typeDefs = require('./graphql/typeDefs');
@@ -42,6 +43,14 @@ const server = new ApolloServer({
 (async () => {
   await server.start();
   server.applyMiddleware({ app, path: '/graphql' });
+
+  if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+  }
+
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  });
 
 
 app.listen(PORT, () => {
