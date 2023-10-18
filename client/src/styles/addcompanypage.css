@@ -1,0 +1,47 @@
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #d1d1d1; /* Slightly lighter gray border */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f4f4f4; /* Light gray background */
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333; /* Dark text color */
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d1d1; /* Slightly lighter gray border */
+  border-radius: 5px;
+}
+
+button {
+  background-color: #007D81; /* Teal button background */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005457; /* Darker teal on hover */
+}
+
+@media screen and (min-width: 80rem) {
+  .container {
+      max-width: 800px; /* Limit the maximum width on larger screens */
+      margin: 0 auto;
+      padding: 20px;
+  }
+}

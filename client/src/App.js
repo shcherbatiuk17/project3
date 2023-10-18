@@ -16,7 +16,7 @@ import Profile from './components/ProfilePage';
 import { logout, getToken, login } from './Utils/Auth';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000/graphql',
+  uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {

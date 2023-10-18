@@ -1,0 +1,82 @@
+.company-list-container {
+  padding: 20px;
+}
+
+.companies-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.company-card {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 15px;
+  border: 1px solid #ccc; /* Slightly lighter gray border */
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.company-btn {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #007D81; /* Teal button background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.company-btn:hover {
+  background-color: #005457; /* Darker teal on hover */
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input {
+  padding: 10px 15px;
+  border: 1px solid #ccc; /* Slightly lighter gray border */
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-btn {
+  background-color: #007D81; /* Teal button background */
+  padding: 8px 16px;
+  border-radius: 12px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.profile-btn:hover {
+  background-color: #005457; /* Darker teal on hover */
+}
+
+@media screen and (min-width: 80rem) {
+  .company-list-container {
+      max-width: 800px; /* Limit the maximum width on larger screens */
+      margin: 0 auto;
+      padding: 20px;
+  }
+}
